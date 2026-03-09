@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Animated background blobs -->
+  <div class="bg">
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+  </div>
+
+  <div class="app">
+
+    <!-- Header -->
+    <header>
+      <div class="logo">⛅ WeatherNow</div>
+      <div class="tagline">Real-time weather, anywhere.</div>
+    </header>
+
+    <!-- Search -->
+    <div class="search-wrap">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="cityInput" placeholder="Search a city..." autocomplete="off" />
+        <button id="searchBtn" onclick="getWeather()">
+          <span>Search</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+      <div class="quick-cities">
+        <span>Quick:</span>
+        <button onclick="quickSearch('Johannesburg')">Johannesburg</button>
+        <button onclick="quickSearch('Cape Town')">Cape Town</button>
+        <button onclick="quickSearch('Durban')">Durban</button>
+        <button onclick="quickSearch('London')">London</button>
+      </div>
+    </div>
+
+    <!-- Loading -->
+    <div class="loading" id="loading">
+      <div class="spinner"></div>
+      <p>Fetching weather data...</p>
+    </div>
+
+    <!-- Error -->
+    <div class="error-box" id="errorBox">
+      <span>⚠️</span>
+      <p id="errorMsg">City not found. Please try again.</p>
+    </div>
+
+    <!-- Weather Card -->
+    <div class="weather-card" id="weatherCard">
+
+      <!-- Top: city + date -->
+      <div class="card-top">
+        <div class="card-left">
+          <div class="city-name" id="cityName"></div>
+          <div class="date-time" id="dateTime"></div>
+          <div class="weather-desc" id="description"></div>
+        </div>
+        <div class="weather-emoji" id="weatherEmoji"></div>
+      </div>
+
+      <!-- Temperature -->
+      <div class="temp-row">
+        <div class="temp-main" id="temperature"></div>
+        <div class="feels-like" id="feelsLike"></div>
+      </div>
+
+      <!-- Divider -->
+      <div class="divider"></div>
+
+      <!-- Stats grid -->
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-icon">💧</div>
+          <div class="stat-value" id="humidity"></div>
+          <div class="stat-label">Humidity</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">🌬️</div>
+          <div class="stat-value" id="wind"></div>
+          <div class="stat-label">Wind</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">👁️</div>
+          <div class="stat-value" id="visibility"></div>
+          <div class="stat-label">Visibility</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">🌡️</div>
+          <div class="stat-value" id="uvIndex"></div>
+          <div class="stat-label">UV Index</div>
+        </div>
+      </div>
+
+    </div>
+
+    <footer>Powered by <strong>wttr.in</strong> · Built by Puseletso Madisha</footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
